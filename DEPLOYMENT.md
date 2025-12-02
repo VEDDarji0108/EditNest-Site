@@ -75,11 +75,12 @@ Deploy backend using Railway or Render (see above).
 3. Configure:
    - **Base directory**: `client`
    - **Build command**: `npm run build`
-   - **Publish directory**: `client/dist`
+   - **Publish directory**: `dist`
 4. Add environment variable:
    - **Key**: `VITE_API_URL`
    - **Value**: Your backend URL
-5. Deploy!
+5. **Important**: The `netlify.toml` file in the root directory will automatically configure redirects for SPA routing
+6. Deploy!
 
 ## 📝 Environment Variables
 
