@@ -1,0 +1,28 @@
+services:
+  # Backend API Service
+  - type: web
+    name: editnest-api
+    env: node
+    plan: free
+    buildCommand: cd server && npm install
+    startCommand: cd server && npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+
+  # Frontend Static Site
+  - type: web
+    name: editnest-frontend
+    env: static
+    buildCommand: cd client && npm install && npm run build
+    staticPublishPath: ./client/dist
+    envVars:
+      - key: VITE_API_URL
+        fromService:
+          type: web
+          name: editnest-api
+          property: host
+        # You'll need to manually set this to: https://editnest-api.onrender.com
+
