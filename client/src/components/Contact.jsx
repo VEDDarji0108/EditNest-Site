@@ -2,9 +2,11 @@ import { useState } from 'react';
 import { apiUrl } from '../config/api';
 
 const services = [
-  { value: 'video-editing', label: 'Video Editing' },
-  { value: 'graphic-design', label: 'Graphic Design' },
-  { value: 'animation', label: 'Animation' },
+  { value: 'strategy-call', label: 'Free Strategy Call' },
+  { value: 'agentic-ai', label: 'Agentic AI & Automation' },
+  { value: 'branding', label: 'Branding & Website Design' },
+  { value: 'ads', label: 'Ads & Performance Marketing' },
+  { value: 'content', label: 'Content Creation & Editing' },
 ];
 
 export const Contact = () => {
@@ -38,7 +40,7 @@ export const Contact = () => {
         throw new Error('Message failed');
       }
 
-      setStatus({ type: 'success', message: 'Your message is on its way to the nest!' });
+      setStatus({ type: 'success', message: 'Thank you! We\'ll reach out within 24 hours to schedule your strategy call.' });
       setForm({
         name: '',
         email: '',
@@ -57,10 +59,10 @@ export const Contact = () => {
       <div className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-white via-sunshine/10 to-transparent" />
       <div className="relative mx-auto max-w-5xl rounded-[48px] border border-white/60 bg-white/90 px-6 py-12 shadow-2xl shadow-hotPink/10 backdrop-blur-2xl md:px-12">
         <div className="mb-10 text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.7em] text-ink/50">Contact</p>
-          <h2 className="heading-gradient font-script text-5xl">Drop Us a Line</h2>
-          <p className="mt-3 text-ink/70">
-            Tell us about your storyboard, brief, or wild idea. The parrot is listening.
+          <p className="text-xs font-semibold uppercase tracking-[0.7em] text-ink/50">Get Started</p>
+          <h2 className="heading-gradient font-script text-5xl">Book Your Free Strategy Call</h2>
+          <p className="mt-3 text-lg text-ink/70 max-w-2xl mx-auto">
+            Let's map out how AI-powered systems, branding, and ads can transform your business. No sales pitch—just clarity and a roadmap.
           </p>
         </div>
 
@@ -92,7 +94,7 @@ export const Contact = () => {
           </div>
 
           <label className="text-sm uppercase tracking-[0.4em] text-ink/50">
-            Service Type
+            I'm Interested In
             <select
               name="serviceType"
               value={form.serviceType}
@@ -108,14 +110,15 @@ export const Contact = () => {
           </label>
 
           <label className="text-sm uppercase tracking-[0.4em] text-ink/50">
-            Message
+            Tell Us About Your Business & Goals
             <textarea
               name="message"
               value={form.message}
               onChange={handleChange}
               rows={5}
               required
-              className="mt-2 w-full border-b-2 border-ink/20 bg-transparent pb-2 text-lg font-semibold text-ink focus:border-surf focus:outline-none"
+              placeholder="What challenges are you facing? What are your growth goals?"
+              className="mt-2 w-full border-b-2 border-ink/20 bg-transparent pb-2 text-lg font-semibold text-ink focus:border-surf focus:outline-none placeholder:text-ink/30"
             />
           </label>
 
@@ -137,7 +140,7 @@ export const Contact = () => {
               disabled={isSubmitting}
               className="rounded-full bg-gradient-to-r from-hotPink via-sunshine to-surf px-12 py-4 text-sm font-semibold uppercase tracking-[0.4em] text-white shadow-2xl shadow-hotPink/30 transition hover:scale-[1.01] disabled:opacity-60"
             >
-              {isSubmitting ? 'Sending...' : 'Send Message'}
+              {isSubmitting ? 'Sending...' : 'Book Strategy Call'}
             </button>
           </div>
         </form>
